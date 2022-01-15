@@ -1,4 +1,4 @@
-FROM postgres:12
+FROM mysql:5
 
 USER root
 RUN apt-get update && \

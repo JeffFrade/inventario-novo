@@ -15,8 +15,8 @@ class CreateTempEquipmentsTypesTable extends Migration
     {
         Schema::create('temp_equipments_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
-            $table->integer('id_equipment');
+            $table->bigInteger('id_user')->unsigned();
+            $table->bigInteger('id_equipment')->unsigned();
             $table->boolean('is_correct_room');
             $table->timestamps();
             $table->softDeletes();
