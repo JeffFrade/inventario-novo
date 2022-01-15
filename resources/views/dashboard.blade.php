@@ -26,7 +26,6 @@
     <br/>
     <div class="row">
         <section class="col-lg-5 connectedSortable ui-sortable">
-            <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
                 <div class="card-header with-border bg-light" style="cursor: move;">
                     <h3 class="card-title">
@@ -39,6 +38,9 @@
                         <canvas id="equipmentsByType" width="500" height="300"></canvas>
                     </div>
                 </div>
+
+                @include('util.overlay')
+            </div>
         </section>
     </div>
 @stop
@@ -53,23 +55,7 @@
                 url: '/dashboard/charts/equipments/equipments-by-type',
                 timeout: 0,
                 success: function (response) {
-                    let equipmentsByTypeChartCanva = document.getElementById('equipmentsByType').getContext('2d');
-                    let equipmentsByTypeChart = new Chart(equipmentsByTypeChartCanva, {
-                        type: 'doughnut',
-                        data: {
-                            labels: response.data.labels,
-                            datasets: [{
-                                label: 'Equipamentos Por Tipo',
-                                data: response.data.data,
-                                backgroundColor: [
-                                    'rgb(255, 99, 132)',
-                                    'rgb(54, 162, 235)',
-                                    'rgb(255, 205, 86)'
-                                ],
-                                hoverOffset: 4
-                            }]
-                        }
-                    });
+                    pieChart('equipmentsByType', 'Equipamentos por Tipo', response, 'doughnut');
                 }
             });
         });
