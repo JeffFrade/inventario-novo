@@ -33,12 +33,12 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    \App\Core\Console\ConsoleKernel::class
+    App\Core\Console\ConsoleKernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    App\Exceptions\ExceptionHandler::class
 );
 
 /*
