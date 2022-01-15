@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Core\Support\Controller;
 use App\Services\EquipmentService;
+use App\Services\EquipmentTypeService;
 use Illuminate\Contracts\Support\Renderable;
 use function view;
 
@@ -15,11 +16,20 @@ class DashboardController extends Controller
     private $equipmentService;
 
     /**
-     * @param EquipmentService $equipmentService
+     * @var EquipmentTypeService
      */
-    public function __construct(EquipmentService $equipmentService)
+    private $equipmentTypeService;
+
+    /**
+     * @param EquipmentService $equipmentService
+     * @param EquipmentTypeService $equipmentTypeService
+     *
+     * @return void
+     */
+    public function __construct(EquipmentService $equipmentService, EquipmentTypeService $equipmentTypeService)
     {
         $this->equipmentService = $equipmentService;
+        $this->equipmentTypeService = $equipmentTypeService;
     }
 
     /**
@@ -30,9 +40,11 @@ class DashboardController extends Controller
     public function index(): Renderable
     {
         $totalEquipmentsIndex = $this->equipmentService->countAllEquipments();
+        $totalEquipmentTypesIndex = $this->equipmentTypeService->countAllEquipmentTypes();
 
         return view('dashboard', with([
-            'totalEquipmentsIndex' => $totalEquipmentsIndex
+            'totalEquipmentsIndex' => $totalEquipmentsIndex,
+            'totalEquipmentTypesIndex' => $totalEquipmentTypesIndex
         ]));
     }
 }
