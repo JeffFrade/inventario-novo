@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Core\Support\Controller;
+use Illuminate\Contracts\Support\Renderable;
 use function view;
 
 class DashboardController extends Controller
@@ -20,10 +21,10 @@ class DashboardController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
-    public function index()
+    public function index(): Renderable
     {
-        return view('home');
+        return view('dashboard');
     }
 }
