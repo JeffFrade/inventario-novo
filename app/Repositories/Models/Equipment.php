@@ -13,6 +13,11 @@ class Equipment extends Model
     use HasFactory, SoftDeletes;
 
     /**
+     * @var string
+     */
+    protected $table = 'equipments';
+
+    /**
      * @var string[]
      */
     protected $fillable = [

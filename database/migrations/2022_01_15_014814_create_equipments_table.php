@@ -48,8 +48,6 @@ class CreateEquipmentsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            //$table->primary(['id', 'serial_number', 'barcode']);
-
             $table->index(['serial_number', 'barcode']);
         });
     }
