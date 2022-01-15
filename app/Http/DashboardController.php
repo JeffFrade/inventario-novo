@@ -3,19 +3,23 @@
 namespace App\Http;
 
 use App\Core\Support\Controller;
+use App\Services\EquipmentService;
 use Illuminate\Contracts\Support\Renderable;
 use function view;
 
 class DashboardController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * @var EquipmentService
      */
-    public function __construct()
-    {
+    private $equipmentService;
 
+    /**
+     * @param EquipmentService $equipmentService
+     */
+    public function __construct(EquipmentService $equipmentService)
+    {
+        $this->equipmentService = $equipmentService;
     }
 
     /**
@@ -25,6 +29,10 @@ class DashboardController extends Controller
      */
     public function index(): Renderable
     {
-        return view('dashboard');
+        $totalEquipmentsIndex = $this->equipmentService->countAllEquipments();
+
+        return view('dashboard', with([
+            'totalEquipmentsIndex' => $totalEquipmentsIndex
+        ]));
     }
 }
