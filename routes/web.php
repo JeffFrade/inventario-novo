@@ -19,5 +19,7 @@ Route::get('/', function () {
 
 \Illuminate\Support\Facades\Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+});
 
