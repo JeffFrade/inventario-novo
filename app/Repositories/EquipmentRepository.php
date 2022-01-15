@@ -4,8 +4,6 @@ namespace App\Repositories;
 
 use App\Core\Support\AbstractRepository;
 use App\Repositories\Models\Equipment;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 
 class EquipmentRepository extends AbstractRepository
 {
@@ -18,11 +16,13 @@ class EquipmentRepository extends AbstractRepository
     }
 
     /**
-     * @return Builder[]|Collection
+     * @return mixed
      */
     public function equipmentByTypeCount()
     {
-        return $this->model->with(['type'])
+        return $this->model->join('equipments_types', 'equipments.id_type', '=', 'equipments_types.id')
+            ->select('equipments_types.type')
+            ->selectRaw('COUNT(*) AS total')
             ->groupBy('id_type')
             ->get();
     }

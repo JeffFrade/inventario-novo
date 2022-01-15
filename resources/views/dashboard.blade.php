@@ -36,7 +36,7 @@
 
                 <div class="card-body">
                     <div style="width: 100%; position: relative; height: 300px; margin-top: 10px;">
-                        <canvas id="equipmentsByRoom" width="500" height="300"></canvas>
+                        <canvas id="equipmentsByType" width="500" height="300"></canvas>
                     </div>
                 </div>
         </section>
@@ -44,27 +44,34 @@
 @stop
 
 @section('js')
-    <script>
-        const ctx = document.getElementById('equipmentsByRoom').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
-                ],
-                datasets: [{
-                    label: 'Equipamentos Por Sala',
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
-                    ],
-                    hoverOffset: 4
-                }]
-            }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+
+                method: 'GET',
+                url: '/dashboard/charts/equipments/equipments-by-type',
+                timeout: 0,
+                success: function (response) {
+                    let equipmentsByTypeChartCanva = document.getElementById('equipmentsByType').getContext('2d');
+                    let equipmentsByTypeChart = new Chart(equipmentsByTypeChartCanva, {
+                        type: 'doughnut',
+                        data: {
+                            labels: response.data.labels,
+                            datasets: [{
+                                label: 'Equipamentos Por Tipo',
+                                data: response.data.data,
+                                backgroundColor: [
+                                    'rgb(255, 99, 132)',
+                                    'rgb(54, 162, 235)',
+                                    'rgb(255, 205, 86)'
+                                ],
+                                hoverOffset: 4
+                            }]
+                        }
+                    });
+                }
+            });
         });
     </script>
 @stop

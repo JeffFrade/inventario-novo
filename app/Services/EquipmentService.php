@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Core\Support\Traits\Chart;
 use App\Repositories\EquipmentRepository;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 
 class EquipmentService
 {
+    use Chart;
+
     /**
      * @var EquipmentRepository
      */
@@ -30,10 +31,15 @@ class EquipmentService
     }
 
     /**
-     * @return Builder[]|Collection
+     * @return array
      */
-    public function equipmentByTypeChart()
+    public function equipmentByTypeChart(): array
     {
-        return $this->equipmentRepository->equipmentByTypeCount();
+        $data = collect($this->equipmentRepository->equipmentByTypeCount());
+
+        $labels = $data->pluck('type')->toArray();
+        $total = $data->pluck('total')->toArray();
+
+        return $this->doughnutChartResponse($labels, $total);
     }
 }
