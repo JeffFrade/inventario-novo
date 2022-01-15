@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         \App\Repositories\Models\User::factory(1)->create();
         \App\Repositories\Models\Responsible::factory(30)->create();
         \App\Repositories\Models\EquipmentType::factory(10)->create();
-        \App\Repositories\Models\Equipment::factory(10)->create();
+        \App\Repositories\Models\Equipment::factory(100)->create();
         $this->call(PermissionsSeeder::class);
     }
 }

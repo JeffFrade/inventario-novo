@@ -22,7 +22,7 @@ RUN rm /etc/ssl/openssl.cnf
 RUN docker-php-ext-install \
         gd \
         pdo \
-        pdo_pgsql \
+        pdo_mysql \
         zip
 
 WORKDIR /inventario

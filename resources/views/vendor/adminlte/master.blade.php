@@ -69,6 +69,7 @@
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
 
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>
@@ -81,6 +82,7 @@
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-notify.min.js') }}"></script>
 
         {{-- Configured Scripts --}}
         @include('adminlte::plugins', ['type' => 'js'])
@@ -102,6 +104,7 @@
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>
