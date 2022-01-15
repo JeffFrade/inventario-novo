@@ -28,4 +28,12 @@ class EquipmentController extends Controller
     {
         return response()->json(['data' => $this->equipmentService->equipmentByTypeChart()]);
     }
+
+    /**
+     * @return JsonResponse
+     */
+    public function equipmentByRoomChart(): JsonResponse
+    {
+        return response()->json(['data' => $this->equipmentService->equipmentByRoomChart()]);
+    }
 }

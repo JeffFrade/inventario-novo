@@ -75,8 +75,26 @@
                 </div>
 
                 <div class="card-body">
-                    <div style="width: 100%; position: relative; height: 300px; margin-top: 10px;">
-                        <canvas id="equipmentsByType" width="500" height="300"></canvas>
+                    <div style="width: 100%; position: relative; height: 400px; margin-top: 10px;">
+                        <canvas id="equipmentsByType" width="550" height="400"></canvas>
+                    </div>
+                </div>
+
+                @include('util.overlay')
+            </div>
+        </section>
+
+        <section class="col-lg-7 connectedSortable ui-sortable">
+            <div class="card">
+                <div class="card-header with-border bg-light" style="cursor: move;">
+                    <h3 class="card-title">
+                        <i class="fas fa-chart-bar mr-1"></i>Equipamentos Por Sala
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <div style="width: 100%; position: relative; height: 400px; margin-top: 10px; padding: 0">
+                        <canvas id="equipmentsByRoom" width="300" height="175"></canvas>
                     </div>
                 </div>
 
@@ -97,6 +115,17 @@
                 timeout: 0,
                 success: function (response) {
                     pieChart('equipmentsByType', 'Equipamentos por Tipo', response, 'doughnut');
+                }
+            });
+
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+
+                method: 'GET',
+                url: '/dashboard/charts/equipments/equipments-by-room',
+                timeout: 0,
+                success: function (response) {
+                    barChart('equipmentsByRoom', 'Equipamentos por Sala', response, 'bar');
                 }
             });
         });

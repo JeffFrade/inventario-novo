@@ -42,4 +42,17 @@ class EquipmentService
 
         return $this->doughnutChartResponse($labels, $total);
     }
+
+    /**
+     * @return array
+     */
+    public function equipmentByRoomChart(): array
+    {
+        $data = collect($this->equipmentRepository->equipmentByRoomCount());
+
+        $labels = $data->pluck('room')->toArray();
+        $total = $data->pluck('total')->toArray();
+
+        return $this->barChartResponse($labels, $total);
+    }
 }

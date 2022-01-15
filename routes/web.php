@@ -26,6 +26,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'equipments'], function () {
             Route::get('equipments-by-type', 'EquipmentController@equipmentByTypeChart')
                 ->name('equipment.type.chart');
+            Route::get('equipments-by-room', 'EquipmentController@equipmentByRoomChart')
+                ->name('equipment.room.chart');
         });
     });
 });

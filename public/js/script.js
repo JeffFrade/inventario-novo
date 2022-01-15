@@ -43,3 +43,26 @@ function pieChart(id, label, response, type = 'pie') {
         }
     });
 }
+
+function barChart(id, label, response, type = 'bar') {
+    let chartCanvas = document.getElementById(id).getContext('2d');
+    let chart = new Chart(chartCanvas, {
+        type: type,
+        data: {
+            labels: response.data.labels,
+            datasets: [{
+                label: label,
+                data: response.data.data,
+                backgroundColor: dynamicColors(response.data.data.length),
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+}

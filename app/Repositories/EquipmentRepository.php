@@ -26,4 +26,16 @@ class EquipmentRepository extends AbstractRepository
             ->groupBy('id_type')
             ->get();
     }
+
+    /**
+     * @return mixed
+     */
+    public function equipmentByRoomCount()
+    {
+        return $this->model->join('rooms', 'equipments.id_room', '=', 'rooms.id')
+            ->select('rooms.room')
+            ->selectRaw('COUNT(*) AS total')
+            ->groupBy('id_room')
+            ->get();
+    }
 }
