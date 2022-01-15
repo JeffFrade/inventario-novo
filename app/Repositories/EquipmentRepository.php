@@ -22,7 +22,7 @@ class EquipmentRepository extends AbstractRepository
     {
         return $this->model->join('equipments_types', 'equipments.id_type', '=', 'equipments_types.id')
             ->select('equipments_types.type')
-            ->selectRaw('COUNT(*) AS total')
+            ->selectRaw('COUNT(equipments.id) AS total')
             ->groupBy('id_type')
             ->get();
     }
@@ -34,7 +34,7 @@ class EquipmentRepository extends AbstractRepository
     {
         return $this->model->join('rooms', 'equipments.id_room', '=', 'rooms.id')
             ->select('rooms.room')
-            ->selectRaw('COUNT(*) AS total')
+            ->selectRaw('COUNT(equipments.id) AS total')
             ->groupBy('id_room')
             ->get();
     }
