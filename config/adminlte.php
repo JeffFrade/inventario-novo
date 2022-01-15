@@ -194,7 +194,7 @@ return [
     'register_url' => null,
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -248,70 +248,41 @@ return [
             'icon'        => 'fa fa-fw fa-tachometer-alt',
             'active'      => ['/dashboard']
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Inventário',
+            'icon'    => 'fas fa-fw fa-angle-double-down',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'        => 'Inventário',
+                    'url'         => '',
+                    'icon'        => 'fa fa-fw fa-barcode',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text'        => 'Equipamentos',
+                    'url'         => '',
+                    'icon'        => 'fa fa-fw fa-server',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'        => 'Tipos de Equipamento',
+                    'url'         => '',
+                    'icon'        => 'fa fa-fw fa-tags',
+                ],
+                [
+                    'text'        => 'Salas',
+                    'url'         => '',
+                    'icon'        => 'fa fa-fw fa-building',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'Usuários',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text' => 'Relatórios',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-file-excel',
         ],
     ],
 
