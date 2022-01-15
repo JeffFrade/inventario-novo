@@ -22,47 +22,53 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-primary">
-                <div class="inner">
-                    <h3>{{ $totalEquipmentTypesIndex }}</h3>
+        @can('equipment-create')
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{ $totalEquipmentTypesIndex }}</h3>
 
-                    <p>Tipos de Equipamentos</p>
+                        <p>Tipos de Equipamentos</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-tags"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-tags"></i>
-                </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
+        @endcan
 
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-primary">
-                <div class="inner">
-                    <h3>{{ $totalRoomsIndex }}</h3>
+        @can('equipment-create')
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{ $totalRoomsIndex }}</h3>
 
-                    <p>Salas</p>
+                        <p>Salas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-building"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-building"></i>
-                </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
+        @endcan
 
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-primary">
-                <div class="inner">
-                    <h3>{{ $totalUsersIndex }}</h3>
+        @can('users')
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{ $totalUsersIndex }}</h3>
 
-                    <p>Usuários</p>
+                        <p>Usuários</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
+        @endcan
     </div>
     <br/>
     <div class="row">

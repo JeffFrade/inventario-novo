@@ -266,11 +266,13 @@ return [
                     'text'        => 'Tipos de Equipamento',
                     'url'         => '',
                     'icon'        => 'fa fa-fw fa-tags',
+                    'can'         => 'equipment-create',
                 ],
                 [
                     'text'        => 'Salas',
                     'url'         => '',
                     'icon'        => 'fa fa-fw fa-building',
+                    'can'         => 'equipment-create',
                 ],
             ],
         ],
@@ -278,11 +280,13 @@ return [
             'text' => 'Usuários',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-users',
+            'can'  => 'users',
         ],
         [
             'text' => 'Relatórios',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-file-excel',
+            'can'  => 'reports',
         ],
     ],
 
