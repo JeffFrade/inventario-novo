@@ -14,11 +14,13 @@ RUN apt-get update \
         libzip-dev \
         zlib1g-dev \
         libssl-dev \
+        libpng-dev \
     && useradd -m inventario
 
 RUN rm /etc/ssl/openssl.cnf
 
 RUN docker-php-ext-install \
+        gd \
         pdo \
         pdo_pgsql \
         zip
